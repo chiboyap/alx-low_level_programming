@@ -1,32 +1,28 @@
 #include "main.h"
-
 /**
- * rot13 - Entry point
- * ONE if, TWO loops only...
- * @n: input
- * Return: decrypted string
+ * rot13 - encodes a string using rot13
+ * @s: input string.
+ * Return: the pointer to dest.
  */
-char *rot13(char *n)
-{
-	int x, rot_c = 13, i = 0;
-	char toswap[] = {'A', 'N', 'a', 'n', 'B', 'O', 'b', 'o', 'C', 'P',
-		'c', 'p', 'D', 'Q', 'd', 'q', 'E', 'R', 'e', 'r', 'F', 'S', 'f',
-		's', 'G', 'T', 'g', 't', 'H', 'U', 'h', 'u', 'I', 'V', 'i', 'v',
-		'J', 'W', 'j', 'w', 'K', 'X', 'k', 'x', 'L', 'Y', 'l', 'y', 'M',
-		'Z', 'm', 'z'};
 
-	while (n[i] != '\0')
+char *rot13(char *s)
+{
+	int count = 0, i;
+	char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+
+	while (*(s + count) != '\0')
 	{
-		for (x = 0; x <= 51; x++)
+		for (i = 0; i < 52; i++)
 		{
-			if (n[i] == toswap[x])
+			if (*(s + count) == alphabet[i])
 			{
-				n[i] = n[i] + rot_c;
-				x = 51;
+				*(s + count) = rot13[i];
+				break;
 			}
-			rot_c = rot_c * -1;
 		}
-		i++;
+		count++;
 	}
-	return (n);
+
+	return (s);
 }

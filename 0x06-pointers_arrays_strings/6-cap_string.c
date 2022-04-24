@@ -1,34 +1,30 @@
 #include "main.h"
-
 /**
- * cap_string - a function that capitalizes all words of a string
- * @n: input string
- * Return: caps on first letter of a separator
+ * cap_string - capitalizes all words of a string
+ * @s: input string.
+ * Return: the pointer to dest.
  */
-char *cap_string(char *n)
+
+char *cap_string(char *s)
 {
-	int i, x;
-	int cap = 32;
-	int separators[] = {',', ';', '.', '?', '"',
-		 '(', ')', '{', '}', ' ', '\n', '\t'};
+	int count = 0, i;
+	int sep_words[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	for (i = 0; n[i] != '\0'; i++)
+	if (*(s + count) >= 97 && *(s + count) <= 122)
+		*(s + count) = *(s + count) - 32;
+	count++;
+	while (*(s + count) != '\0')
 	{
-		if (n[i] >= 'a' && n[i] <= 'z')
+		for (i = 0; i < 13; i++)
 		{
-			n[i] = n[i] - cap;
-		}
-
-		cap = 0;
-
-		for (x = 0; x <= 12; x++)
-		{
-			if (n[i] == separators[x])
+			if (*(s + count) == sep_words[i])
 			{
-				x = 12;
-				cap = 32;
+				if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
+					*(s + (count + 1)) = *(s + (count + 1)) - 32;
+				break;
 			}
 		}
+		count++;
 	}
-	return (n);
+	return (s);
 }
