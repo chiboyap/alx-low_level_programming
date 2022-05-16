@@ -22,10 +22,9 @@ if (n == 0)
 
 va_start(nums, n);
 
-while (i < n)
+for (i = 0; i < n; i++)
 {
 sum += va_arg(nums, int);
-i++;
 }
 va_end(nums);
 
