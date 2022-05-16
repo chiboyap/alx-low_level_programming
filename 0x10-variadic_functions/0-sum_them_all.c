@@ -20,7 +20,7 @@ if (n == 0){
 
 va_start(nums, n);
 
-while(i <= n)
+while (i < n)
 {
 sum += va_arg(nums, int);
 i++;
