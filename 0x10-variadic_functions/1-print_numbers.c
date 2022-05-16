@@ -20,7 +20,7 @@ va_start(nums, n);
 while (i < n)
 {
 {
-printf("%d", va_arg(nums, int));
+printf("%d", va_arg(nums, const unsigned int));
 if (separator && i != n - 1)
 printf("%s", separator);
 }
