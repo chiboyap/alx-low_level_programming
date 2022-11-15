@@ -6,8 +6,6 @@
  * Desc: This header file contains all the prototypes required for
  * the 0x1E-search_algorithms project.
  *
- * Author: Yoseph Desalegn
- * Date Created: oct 30, 2022
  *
  */
 
